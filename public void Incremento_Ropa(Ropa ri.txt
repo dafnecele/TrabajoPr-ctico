@@ -1,0 +1,28 @@
+public void Incremento_Ropa(Ropa ri, Ropa[] vp){
+           float pf=0;
+            float pfinal[]= new float[vp.length];
+                if(ri.getTamaño().equalsIgnoreCase("pequeño")){
+                    pf= ri.getPreciobase()*1.05f;
+                }else if(ri.getTamaño().equalsIgnoreCase("mediano")){
+                    pf= ri.getPreciobase()*1.07f;
+                }else if(ri.getTamaño().equalsIgnoreCase("grande")){
+                    pf= ri.getPreciobase()*1.10f;
+                }
+                for(int i=0; i<vp.length;i++){
+                    pfinal[i]=pf;
+                }
+            float aux;
+        for(int i=0; i<pfinal.length; i++){
+            for(int j=i+1; j<pfinal.length; j++){
+                if(pfinal[i]>pfinal[j]){
+                    aux=pfinal[i];
+                    pfinal[i]=pfinal[j];
+                    pfinal[j]=aux;  
+                }
+            }
+        }
+        for(int i=0; i<vp.length; i++){
+        JOptionPane.showMessageDialog(null, "\n El precio base es "+ ri.getPreciobase()+"\n El precio final es "+ pfinal[i]);
+        }
+    } 
+    
